@@ -41,6 +41,14 @@
         <!--Theme Colors css-->
         <!--<link rel="stylesheet" href="assets/css/white.css">-->
 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
 
 
         <!--Old browser  JS-->
@@ -348,7 +356,7 @@
                             <div class="row">
                                 <div class="col-md-6 no-padding">
                                     <div class="contact_us_right wow fadeInLeft">
-                                        <div class="single_contactus">
+                                        <div class="single_contactus" id="ourmap">
                                             <div class="ourmap"></div>
                                         </div>
                                     </div>
@@ -444,28 +452,40 @@
         <script src="assets/js/jquery.easing.1.3.js"></script>
         <script src="assets/js/materialize.js"></script>
         <script src="assets/js/jquery.magnific-popup.js"></script>
-        <script src="http://maps.google.com/maps/api/js"></script>
-        <script src="assets/js/gmaps.min.js"></script>
+        <!-- <script src="http://maps.google.com/maps/api/js"></script> -->
+        <!-- <script src="assets/js/gmaps.min.js"></script> -->
         <script>
-            var map = new GMaps({
-                el: '.ourmap',
-                lat: 52.088168,
-                lng: 5.102391,
-                scrollwheel: false,
-                zoom: 15,
-                zoomControl: true,
-                panControl: false,
-                streetViewControl: true,
-                mapTypeControl: false,
-                overviewMapControl: false,
-                clickable: false,
-                styles: [{'stylers': [{'hue': '#000'}, {saturation: -200},
-                            {gamma: 0.50}]}]
-            });
-            map.addMarker({
-                lat: -12.043333,
-                lng: -77.028333
-            });
+            // var map = new GMaps({
+            //     el: '.ourmap',
+            //     lat: 52.088168,
+            //     lng: 5.102391,
+            //     scrollwheel: false,
+            //     zoom: 15,
+            //     zoomControl: true,
+            //     panControl: false,
+            //     streetViewControl: true,
+            //     mapTypeControl: false,
+            //     overviewMapControl: false,
+            //     clickable: false,
+            //     styles: [{'stylers': [{'hue': '#000'}, {saturation: -200},
+            //                 {gamma: 0.50}]}]
+            // });
+            // map.addMarker({
+            //     lat: -12.043333,
+            //     lng: -77.028333
+            // });
+
+            // 52.086180, 5.123550
+            // 52.092754, 5.121659
+            var map = L.map('ourmap').setView([52.092, 5.121], 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([52.086180, 5.123550]).addTo(map)
+                .bindPopup('Aryana Bouw')
+                .openPopup();
 
         </script>
 
