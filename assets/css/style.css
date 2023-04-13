@@ -361,8 +361,8 @@ nav ul li {
 }
 
 .main_about_area .single_about i{
-    border:1px solid #ff9a5e;
-    color:#ff9a5e;
+    border:1px solid #bfbfbf;
+    color:rgba(58, 58, 58, 0.933);
     width:60px;
     height: 60px;
     line-height: 60px;
